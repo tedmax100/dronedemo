@@ -6,9 +6,11 @@ steps:
   - name: backend
     image: golang:1.14-alpine
     enviroment:
-      USERNAME:
-        from_secret: USERNAME
+      NETRC:
+        from_secret: netrc
+
     commands:
+      - echo $NETRC | base64 -d > ~/.netrc
       - go build
       - echo $USERNAME
       - echo "success"
