@@ -10,7 +10,7 @@ steps:
         from_secret: netrc
 
     commands:
-      - echo $NETRC | base64 -d > ~/.netrc
+      - echo $NETRC
       - go build
       - echo $USERNAME
       - echo "success"
