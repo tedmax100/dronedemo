@@ -1,0 +1,14 @@
+---
+kind: pipeline
+name: default
+
+steps:
+  - name: backend
+    image: golang:1.14-alpine
+    enviroment:
+      USERNAME:
+        from_secret: USERNAME
+    commands:
+      - go build
+      - echo $USERNAME
+      - echo "success"
